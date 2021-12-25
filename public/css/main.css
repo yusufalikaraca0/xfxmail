@@ -1,0 +1,10 @@
+html{
+   font-family: 'KoHo', 'Times New Roman', Times, serif;
+}
+a{
+    text-decoration: none;
+    color: green;
+}
+a:hover{
+    transform: translateX(40);
+}
