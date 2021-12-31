@@ -1,0 +1,40 @@
+<%- include('./inc/head.ejs')%> 
+<body>
+    <div id="form">
+        <input type="text" name="username" id="username" placeholder="Kullanıcı adınız giriniz">
+        <br>
+        <input type="password" name="password" id="password" placeholder="Şifreniz">
+        <br>
+        <input type="password" name="repassword" id="repassword" placeholder="Şifrenizi Tekrar Giriniz">
+        <br>
+        <input type="email" name="forgotmail" id="forgotmail" placeholder="Kurtarma e-posta adresi">
+        <div style="font-size:0.75rem">(opsiyonel,şifrenizi kaybetmeniz durumunda hesabınızı kurtarmak için)</div>
+        <input id="gonder" type="submit" value="Kayıt Ol!">
+        <p id="response"></p>
+        <script src="js/send.js"></script>
+        <script src="js/usercheck.js"></script>
+        <script>
+            $("#gonder").click(function() {
+                var username = $("#username").val();
+                var password = $("#password").val();
+                var forgotmail = $("#forgotmail").val();
+                var jsdata = {'username':username,'password':password,'forgotmail':forgotmail};
+                send("/register",jsdata,function(data){
+                   if(data == 'created'){
+                       setTimeout(() => {
+                           alert('Hesabınız oluşturuldu!,yönlendiriliyorsunuz..')
+                           console.log(document.location.pathname = 'login');
+                       }, 500);
+                   }
+                })
+                console.log('wait')
+            });
+            
+        </script>
+    </div>
+        
+    
+    
+
+</body>
+</html>

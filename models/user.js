@@ -16,7 +16,7 @@ const Userschema = new mongoose.Schema({
     },
     forgot_mail:{
         type:String,
-        required:true
+        
     }
 })
 const User = mongoose.model('User',Userschema)

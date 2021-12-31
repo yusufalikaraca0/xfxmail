@@ -10,7 +10,7 @@ app.use(bodyparser.json())
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs')
 
-const titleControl = require('./controllers/titleController')
+//const titleControl = require('./controllers/titleController')
 const routes = require('./routes/routes')
 const authRoutes = require('./routes/authRoutes')
 
