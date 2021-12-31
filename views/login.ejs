@@ -4,10 +4,24 @@
         <input type="text" name="username" id="username" placeholder="Kullanıcı adınız giriniz">
         <br>
         <input type="password" name="password" id="password" placeholder="Şifreniz">
-        <input type="submit" value="Giriş Yap!">
+        <input type="submit" value="Giriş Yap!" id="submit">
         <p id="response"></p>
         <script src="js/send.js"></script>
-        
+        <script>
+            $('#submit').click(function(){
+                var username = $("#username").val();
+                var password = $("#password").val();
+                var jsdata = {'username':username,'password':password};
+                send("/login",jsdata,function(data){
+                   if(data == 'false'){
+                       alert('yanlış veya bulunamadı!')
+                   }
+                   else{
+                       document.location.pathname = '/inbox'
+                   }
+                })
+            })
+        </script>
     </div>
         
     
