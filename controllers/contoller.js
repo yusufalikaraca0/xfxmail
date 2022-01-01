@@ -7,4 +7,4 @@ const index_get = (req,res) => {
 
 module.exports = {
     index_get
-}
+} 

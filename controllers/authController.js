@@ -1,7 +1,9 @@
 const User = require('../models/user')
 const request = require('request')
 const jwt = require('jsonwebtoken')
-const jwtSecret = process.env.JWTSECRET
+const dotenv = require('dotenv');
+dotenv.config();
+const jwtSecret = process.env.JWT_SECRET
 const login_get = (req,res)=>{
     res.render('login')
 }
@@ -28,7 +30,7 @@ const login_post = (req,res)=>{
         const user = {userid:result[0]._id}
 
         if(gelen.password == result[0].password){
-          const token1 = jwt.sign(user,jwtSecret+result[0].password,{expiresIn:'2h'})
+          const token1 = jwt.sign(user,jwtSecret,{expiresIn:'2h'})
           console.log(token1)
           
           res.cookie('jwt',token1,{httpOnly:true,maxAge:60*60*24*1000})
