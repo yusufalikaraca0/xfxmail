@@ -5,6 +5,10 @@ const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser');
 const {checkAuth} = require('./middlewares/checkAuth')
 const dotenv = require('dotenv');
+var Imap = require("imap");
+var MailParser = require("mailparser").MailParser;
+var Promise = require("bluebird");
+Promise.longStackTraces();
 dotenv.config();
 
 const app = express();
